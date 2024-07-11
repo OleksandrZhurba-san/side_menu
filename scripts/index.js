@@ -11,3 +11,9 @@ openMenuBtn.addEventListener("click", () => {
 closeMenuBtn.addEventListener("click", () => {
   navMenu.classList.toggle("display-none");
 });
+
+document.onkeyup = (e) => {
+  if (e.key === "Escape" && !navMenu.classList.contains("display-none")) {
+    navMenu.classList.toggle("display-none");
+  }
+};
