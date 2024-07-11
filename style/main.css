@@ -1,0 +1,36 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+nav {
+  background-color: #add8e6;
+  height: 30px;
+  position: relative;
+}
+.open-menu {
+  width: 30px;
+  border: 1px solid black;
+}
+.nav-menu {
+  top: 0px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffb7c1;
+  gap: 16px;
+  padding: 8px;
+  transition: left 0.3s ease;
+}
+.menu-item {
+  padding: 8px;
+  background-color: #ffdab9;
+  border-radius: 6px;
+  min-width: 320px;
+}
+.display-none {
+  display: none;
+}
+/* ADD8E6 */
+/* FFB7C1 */
+/* FFDAB9 */
