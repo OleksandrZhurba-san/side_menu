@@ -1,30 +1,43 @@
 const openMenuBtn = document.querySelector(".open-menu");
 const closeMenuBtn = document.querySelector(".close-menu");
 const navMenu = document.querySelector(".nav-menu");
+const menuItem = document.querySelectorAll(".menu__item");
 
-navMenu.classList.toggle("display-none");
+function toggleSubMenu(target) {
+  target.nextElementSibling.classList.toggle("toggle-sub-menu");
+}
 
+function toggleMenu() {
+  navMenu.classList.toggle("nav-menu--open");
+}
 openMenuBtn.addEventListener("click", (e) => {
   e.stopPropagation();
-  navMenu.classList.toggle("display-none");
+  toggleMenu();
 });
 
 closeMenuBtn.addEventListener("click", (e) => {
   e.stopPropagation();
-  navMenu.classList.toggle("display-none");
+  toggleMenu();
 });
 
-document.addEventListener("click", (e) => {
+document.addEventListener("click", (event) => {
   if (
-    !navMenu.classList.contains("display-none") &&
-    !e.target.isEqualNode(navMenu)
+    navMenu.classList.contains("nav-menu--open") &&
+    !navMenu.contains(event.target)
   ) {
-    navMenu.classList.toggle("display-none");
+    toggleMenu();
   }
 });
 
 document.onkeyup = (e) => {
-  if (e.key === "Escape" && !navMenu.classList.contains("display-none")) {
-    navMenu.classList.toggle("display-none");
+  if (e.key === "Escape" && navMenu.classList.contains("nav-menu--open")) {
+    toggleMenu();
   }
 };
+
+menuItem.forEach((e) => {
+  e.addEventListener("click", (event) => {
+    // e.stopPropagation();
+    toggleSubMenu(event.target);
+  });
+});
